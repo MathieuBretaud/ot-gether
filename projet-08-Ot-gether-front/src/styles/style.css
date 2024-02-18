@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+}
+
+@layer utilities {
+  .container {
+    max-width: 69.375rem;
+    margin-inline: auto;
+    padding: 0 1rem;
+  }
+
+  .bg-flamingo-pink {
+    background-color: #f02aa6;
+  }
+}
+
+@layer components {
+  .btn {
+    border-radius: 1.75rem;
+    padding: 1rem 2rem;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .card {
+    background: #ffffff;
+    box-shadow: 0px 25px 50px rgba(6, 22, 141, 0.0442381);
+    border-radius: 10px;
+    padding: 0 28px;
+    padding-top: 56px;
+    padding-bottom: 32px;
+  }
+
+  .card-accent {
+    box-shadow: 0px 25px 50px rgba(6, 22, 141, 0.0442381);
+    border-radius: 10px;
+    padding: 24px 28px;
+  }
+
+  @media (min-width: 768px) {
+    .card-accent {
+      box-shadow: 0px 25px 50px rgba(6, 22, 141, 0.0442381);
+      border-radius: 10px;
+      padding: 56px 28px;
+    }
+  }
+}

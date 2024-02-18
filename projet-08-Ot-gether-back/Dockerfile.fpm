@@ -1,0 +1,14 @@
+FROM php:8.2-fpm
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/local/bin
+RUN apt update && apt install -y zip git libicu-dev libpq-dev
+RUN docker-php-ext-install opcache intl bcmath pgsql pdo_pgsql
+WORKDIR /app
+COPY . .
+RUN composer install
+RUN php artisan config:cache
+RUN php artisan route:cache
+RUN php artisan view:cache
+ADD . /var/www
+RUN chown -R www-data:www-data /app
+#RUN usermod -u 1000 www-data

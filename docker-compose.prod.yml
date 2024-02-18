@@ -1,0 +1,48 @@
+version: "3.8"
+services:
+  client:
+    build:
+      context: ./projet-08-Ot-gether-front
+      dockerfile: Dockerfile.prod
+    restart: always
+  api:
+    build:
+      context: ./projet-08-Ot-gether-back
+      dockerfile: Dockerfile.fpm
+    restart: unless-stopped
+    depends_on:
+      - pgsql
+  pgsql:
+        image: "postgres:15"
+        environment:
+            POSTGRES_PASSWORD: "password"
+        volumes:
+          - type: volume
+            source: dbprod
+            target: /var/lib/postgresql/data
+  reverse-proxy:
+    build:
+      context: ./reverse-proxy
+      dockerfile: Dockerfile.prod
+    ports:
+      - "80:80"
+      - "443:443"
+#    volumes:
+#      - type: bind
+#        source: /etc/letsencrypt
+#        target: /etc/letsencrypt
+    restart: unless-stopped
+    depends_on:
+      - api
+      - pgsql
+      - client
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - pgsql
+volumes:
+  dbprod:
+#    external: true

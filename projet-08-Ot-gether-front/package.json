@@ -1,0 +1,48 @@
+{
+  "name": "vuetify-project",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "@mdi/font": "7.0.96",
+    "@tanstack/vue-query": "^5.14.1",
+    "@vee-validate/zod": "^4.12.3",
+    "@vueuse/core": "^10.7.0",
+    "axios": "^1.6.2",
+    "core-js": "^3.29.0",
+    "dayjs": "^1.11.10",
+    "jsonwebtoken": "^9.0.2",
+    "laravel-echo": "^1.15.3",
+    "pinia": "^2.0.0",
+    "pusher-js": "^8.4.0-rc2",
+    "roboto-fontface": "*",
+    "vee-validate": "^4.12.3",
+    "vue": "^3.2.0",
+    "vue-router": "^4.0.0",
+    "vuetify": "^3.0.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.21.4",
+    "@types/node": "^18.15.0",
+    "@types/vue": "^2.0.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.37.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "postcss": "^8.4.32",
+    "sass": "^1.60.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.0.0",
+    "unplugin-fonts": "^1.0.3",
+    "vite": "^4.2.0",
+    "vite-plugin-vuetify": "^1.0.0",
+    "vue-tsc": "^1.2.0"
+  }
+}
